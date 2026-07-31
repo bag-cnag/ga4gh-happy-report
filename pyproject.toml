@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ga4gh-happy-report"
+version = "0.1.0"
+description = "Generate standalone HTML benchmarking reports from GA4GH / hap.py variant-calling metrics CSVs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { email = "georgiakes@gmail.com" },
+]
+keywords = ["hap.py", "GA4GH", "variant-calling", "benchmarking", "bioinformatics", "vcf"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "jinja2>=3.0",
+]
+
+[project.scripts]
+"rep.py" = "ga4gh_happy_report.cli:main"
+ga4gh-happy-report = "ga4gh_happy_report.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ga4gh_happy_report = ["assets/html/*"]
