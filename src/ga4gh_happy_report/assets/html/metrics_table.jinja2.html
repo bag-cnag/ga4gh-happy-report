@@ -143,11 +143,24 @@
               .data(columns).enter()
               .append("th")
               .attr("class", function (d) {
-                  return d["class"];
+                  var cls = d["class"] || "";
+                  return d.sort ? (cls + " sortable").trim() : cls;
               })
+              .attr("title", function (d) {
+                  return d.sort ? "Click to sort" : null;
+              });
+
+      tbl_headers.append("span")
+              .attr("class", "th-label")
               .text(function (d) {
                   return d.header;
               });
+
+      tbl_headers.filter(function (d) {
+          return d.sort;
+      }).append("span")
+              .attr("class", "sort-indicator")
+              .html("&nbsp;&#8645;");
 
       var tbl_rows = tbl.append("tbody").selectAll("tr")
               .data(data).enter()
@@ -173,11 +186,25 @@
                   }
               });
 
+      /** tracks whether each sortable column's comparator is currently reversed,
+       *  so that clicking a header repeatedly toggles ascending / descending */
+      var sortReversed = {};
+
       tbl_headers.on("click", function(d) {
           if(d.sort) {
-              tbl_rows.sort(d.sort);
+              var wasReversed = sortReversed.hasOwnProperty(d.field) ? sortReversed[d.field] : true;
+              var reversed = !wasReversed;
+              sortReversed[d.field] = reversed;
+
+              tbl_rows.sort(function (x, y) {
+                  var result = d.sort(x, y);
+                  return reversed ? -result : result;
+              });
+
+              tbl_headers.selectAll(".sort-indicator").html("&nbsp;&#8645;");
+              d3.select(this).select(".sort-indicator")
+                      .html(reversed ? "&nbsp;&#8593;" : "&nbsp;&#8595;");
           }
-          // &darr;
       });
 
 

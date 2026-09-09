@@ -163,6 +163,20 @@ h6 {
 .table.table-bordered th {
   border: 1px #ccc solid;
 }
+.table th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+.table th.sortable:hover {
+  background-color: #e8e8e8;
+}
+.table th .sort-indicator {
+  color: #999;
+  font-size: 0.85em;
+}
+.table th.sortable:hover .sort-indicator {
+  color: #333;
+}
 
 .button {
   border: 0;
