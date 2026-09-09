@@ -50,4 +50,6 @@ take effect immediately.
 
 Original reporting logic from
 [ga4gh/benchmarking-tools](https://github.com/ga4gh/benchmarking-tools)
-by Peter Krusche (Illumina).
+by Peter Krusche (Illumina), licensed under the Apache License, Version 2.0.
+This project is a Python 3 port distributed under the same license; see
+[LICENSE](LICENSE).

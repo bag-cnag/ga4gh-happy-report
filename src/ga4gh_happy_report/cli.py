@@ -10,6 +10,9 @@
 # Original author:
 #   Peter Krusche <pkrusche@illumina.com>
 #
+# Ported from https://github.com/ga4gh/benchmarking-tools (rep.py).
+# Licensed under the Apache License, Version 2.0; see LICENSE.
+#
 # Python 3 port + CDN asset loader for nf-core/variantbenchmarking:
 #   - All `print` statements updated to print()
 #   - `urllib2` replaced with `urllib.request`
