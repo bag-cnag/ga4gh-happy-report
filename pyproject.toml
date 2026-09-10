@@ -27,8 +27,8 @@ dependencies = [
 ]
 
 [project.scripts]
-"rep.py" = "ga4gh_happy_report.cli:main"
-ga4gh-happy-report = "ga4gh_happy_report.cli:main"
+"rep.py" = "ga4gh_happy_report.report:main"
+ga4gh-happy-report = "ga4gh_happy_report.report:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
