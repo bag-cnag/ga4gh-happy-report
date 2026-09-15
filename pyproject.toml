@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ga4gh-happy-report"
-version = "0.1.1"
+version = "0.1.2"
 description = "Generate standalone HTML benchmarking reports from GA4GH / hap.py variant-calling metrics CSVs"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -25,6 +25,11 @@ classifiers = [
 dependencies = [
     "jinja2>=3.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/bag-cnag/ga4gh-happy-report"
+Repository = "https://github.com/bag-cnag/ga4gh-happy-report"
+Issues = "https://github.com/bag-cnag/ga4gh-happy-report/issues"
 
 [project.scripts]
 "rep.py" = "ga4gh_happy_report.report:main"
